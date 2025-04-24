@@ -23,36 +23,28 @@ export const metadata = {
 
 export default function HomePage() {
   return (
-    <> {/* Fragment might not be needed if portfolioLayout is the only root element */}
-      <div className="portfolioLayout">
+    <>
+      {/* Render Sections directly */}
+      <Hero profile={profile} />
 
-        <Navigation /> {/* Theme handled by context */}
-
-        <main className="contentArea">
-          {/* Render Sections, passing data as props */}
-          <Hero profile={profile} />
-
-          {/* Wrap sections in divs with IDs for navigation scrolling */}
-          <div id="about">
-             <About profile={profile} />
-          </div>
-
-          <div id="experience">
-             <Experience experiences={experiences} />
-          </div>
-
-          <div id="projects">
-             <Projects projects={projects} />
-          </div>
-
-          <div id="contact">
-              <Contact contactInfo={profile.contact} />
-          </div>
-
-          <Footer />
-        </main>
+      <div id="about">
+         <About profile={profile} />
       </div>
-      {/* No <style jsx> block here anymore! Styles are in globals.css */}
+
+      <div id="experience">
+         <Experience experiences={experiences} />
+      </div>
+
+      <div id="projects">
+         <Projects projects={projects} />
+      </div>
+
+      <div id="contact">
+          <Contact contactInfo={profile.contact} />
+      </div>
+
+      <Footer />
     </>
+    // No <style> block here
   );
 }
