@@ -5,7 +5,7 @@ export default function Hero({ profile }) { // Receive profile data
   return (
     <section id="hero" className="contentSection hero">
        <h1 className="heroTitle">
-         Hey, I'm {profile.full_name}! 👋
+          Hey, I&apos;m {profile.full_name}! 👋
        </h1>
        <p className="heroSubtitle">
          I uncover hidden patterns and opportunities within your <span className="heroTitleHighlight">data</span>.
