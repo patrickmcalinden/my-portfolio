@@ -1,0 +1,54 @@
+/* src/app/page.module.css */
+.portfolioLayout {
+  display: flex;
+  min-height: 100vh;
+}
+
+.navigationArea {
+  width: 250px; /* Example fixed width for sidebar */
+  position: sticky; /* Makes the nav stay */
+  top: 0;
+  height: 100vh; /* Full height */
+  overflow-y: auto; /* Allow scrolling if nav content is long */
+  background-color: #1e1e1e; /* Darker background for nav */
+  padding: 2rem 1rem;
+  border-right: 1px solid #333; /* Separator line */
+
+  /* Add media query for mobile */
+   @media (max-width: 768px) {
+     position: static; /* Or fixed at top/bottom */
+     width: 100%;
+     height: auto;
+     border-right: none;
+     border-bottom: 1px solid #333;
+   }
+}
+
+.contentArea {
+  flex-grow: 1; /* Takes remaining space */
+  overflow-y: auto; /* Allows content to scroll */
+}
+
+.contentSection {
+  padding: 4rem 2rem; /* Consistent padding for sections */
+  margin: 0 auto;
+  max-width: 900px; /* Max width for content readability */
+  border-bottom: 1px solid #333; /* Separator between sections */
+}
+
+.contentSection:last-of-type {
+    border-bottom: none; /* No border after the last section */
+}
+
+/* Adjustments for mobile layout */
+@media (max-width: 768px) {
+  .portfolioLayout {
+    flex-direction: column;
+  }
+   .contentArea {
+    width: 100%;
+  }
+   .contentSection {
+    padding: 2rem 1rem;
+  }
+}
