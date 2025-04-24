@@ -1,36 +1,44 @@
-'use client'; // Needs to import and render the client ThemeToggle
+// src/components/Navigation/Navigation.js
+'use client'; // Still needed as it renders ThemeToggle
 
 import React from 'react';
-import { profile, sections } from '@/data/portfolioData'; // Import data needed
-import ThemeToggle from '@/components/ThemeToggle/ThemeToggle'; // Import the toggle component
+import { profile, sections } from '@/data/portfolioData';
+import ThemeToggle from '@/components/ThemeToggle/ThemeToggle'; // Ensure correct import path
 
 export default function Navigation() {
-  // No need for theme/toggleTheme props anymore, ThemeToggle handles it via context
-
   return (
-    // This is now just rendering the structure
-    // Theme state is managed globally by ThemeProvider/ThemeToggle
-    <nav className="navigationArea"> {/* Changed div to nav */}
+    // Use header tag, apply class for sticky styling
+    <header className="stickyNavbar">
+      {/* Inner wrapper for max-width and padding */}
+      <div className="navContentWrapper">
 
-      <div className="navTopRow">
+        {/* Left Side: Name */}
         <div className="navHeader">
-           <h1>{profile.name}</h1>
-           <p>{profile.title}</p>
+           <a href="#hero" className="navHomeLink">
+              <h1>{profile.name} </h1>
+              {/* Title removed for simplicity in horizontal nav */}
+           </a>
         </div>
-        {/* Render the ThemeToggle component */}
-        <ThemeToggle />
+
+        {/* Center/Right Side: Nav Links */}
+        <nav className="navListWrapper">
+           <ul className="navList">
+             {sections.map((section) => (
+               <li key={section.id}>
+                 <a href={`#${section.id}`} className="navLink">
+                   {section.title}
+                 </a>
+               </li>
+             ))}
+           </ul>
+        </nav>
+
+         {/* Right Side: Theme Toggle */}
+         <div className="navActionItems"> {/* Wrapper for toggle or future items */}
+            <ThemeToggle />
+         </div>
+
       </div>
-
-      <ul className="navList">
-        {sections.map((section) => (
-          <li key={section.id}>
-            <a href={`#${section.id}`} className="navLink">
-              {section.title}
-            </a>
-          </li>
-        ))}
-      </ul>
-
-    </nav>
+    </header>
   );
 }
