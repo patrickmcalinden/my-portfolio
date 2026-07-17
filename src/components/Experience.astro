@@ -1,0 +1,42 @@
+---
+import Section from "./Section.astro";
+import { experience } from "../data/resume";
+---
+
+<Section id="experience" title="Experience">
+  <ol class="space-y-12 border-l-2 border-cream-200 pl-6">
+    {
+      experience.map((job) => (
+        <li class="relative">
+          <span
+            class="absolute -left-[31px] top-1.5 h-3 w-3 rounded-full border-2 border-cream-50 bg-pine-600"
+            aria-hidden="true"
+          />
+          <p class="text-sm font-medium uppercase tracking-wide text-pine-700">
+            {job.date}
+          </p>
+          <h3 class="mt-1 font-display text-xl font-semibold text-pine-950">
+            {job.title}
+          </h3>
+          <p class="mt-0.5 text-pine-800/80">
+            {job.link ? (
+              <a
+                href={job.link}
+                class="underline decoration-pine-600/40 underline-offset-4 transition-colors duration-200 hover:text-pine-600">
+                {job.company}
+              </a>
+            ) : (
+              job.company
+            )}
+            <span class="text-pine-800/50"> · {job.location}</span>
+          </p>
+          <ul class="mt-3 list-disc space-y-2 pl-5 text-sm text-pine-800/80 marker:text-pine-600">
+            {job.bullets.map((bullet) => (
+              <li>{bullet}</li>
+            ))}
+          </ul>
+        </li>
+      ))
+    }
+  </ol>
+</Section>

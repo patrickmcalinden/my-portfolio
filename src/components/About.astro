@@ -1,0 +1,13 @@
+---
+import Section from "./Section.astro";
+import { profile, education } from "../data/resume";
+---
+
+<Section id="about" title="About">
+  <div class="space-y-4 text-pine-800/90">
+    {profile.summary.map((paragraph) => <p>{paragraph}</p>)}
+    <p class="text-sm text-pine-800/70">
+      {education.degree}, {education.school} · {education.detail} · {education.date}
+    </p>
+  </div>
+</Section>

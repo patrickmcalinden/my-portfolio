@@ -1,0 +1,35 @@
+---
+const links = [
+  { href: "#about", label: "About" },
+  { href: "#experience", label: "Experience" },
+  { href: "#skills", label: "Skills" },
+  { href: "#projects", label: "Projects" },
+  { href: "#contact", label: "Contact" },
+];
+---
+
+<header class="sticky top-0 z-50 border-b border-cream-200 bg-cream-50/85 backdrop-blur">
+  <nav class="mx-auto flex max-w-content items-center justify-between px-6 py-4">
+    <a href="#top" class="font-display text-lg font-semibold text-pine-900">
+      ✺ Patrick McAlinden
+    </a>
+    <ul class="hidden items-center gap-6 sm:flex">
+      {
+        links.map((link) => (
+          <li>
+            <a
+              href={link.href}
+              class="text-sm font-medium text-pine-800/70 transition-colors duration-200 hover:text-pine-600">
+              {link.label}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+    <a
+      href="#contact"
+      class="text-sm font-medium text-pine-800/70 transition-colors duration-200 hover:text-pine-600 sm:hidden">
+      Contact
+    </a>
+  </nav>
+</header>
